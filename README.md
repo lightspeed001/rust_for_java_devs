@@ -167,7 +167,7 @@ __Key differences from Java__:
 - No exceptions (use `Result<T, E>`).
 - No global state (everything is scoped).
 
-### Summary
+__Summary__
 
 * Rust is not OOP but it supports structured programming with structs and traits.
 * Memory safety is guaranteed at compile time via ownership.
@@ -175,7 +175,7 @@ __Key differences from Java__:
 
 ### More Rust Specific Features with Practical examples :bulb:
 
-__1. Ownership & Borrowing (Core Rust Concept)__
+1. __Ownership & Borrowing (Core Rust Concept)__
 
 Rust's memory safety is enforced via ownership rules:
 - Each value has a single owner
@@ -212,8 +212,9 @@ fn modify_string(s: &mut String) {
 s.push_str(" modified");
 }
 ```
+---
 
-__2. Pattern Matching__ (`match`)
+2. __Pattern Matching__ (`match`)
 Rust's `match` is like a supercharged `switch` that can destructure enums, structs and more.
 
 _Example: Matching on Enums_
@@ -262,8 +263,9 @@ let p = Point {x: 5, y: 0};
 print_point(p); // "On the x-axis at 5"
 }
 ```
+---
 
-3. Error Handling (`Result` and `Option`)
+3. __Error Handling__ (`Result` and `Option`)
 Rust avoids exceptions by using `Result<T, E>` (for recoverable errors) and `Option<T>` (for nullable values).
 
 _Example: `Result` for Error Handling_
@@ -302,6 +304,7 @@ None => println!("Cannot divide by zero"),
 }
 }
 ```
+---
 
 4. __Traits (_Like Interfaces, but more Powerful_)__
 
@@ -330,7 +333,8 @@ println! ("{}", person.greet()); //"Hello, Alice!"
 }
 ```
 
-_Example: Trait Bounds (Generic Constraints)
+_Example: Trait Bounds (Generic Constraints)_
+
 ```rust
 trait Area {
 fn area(&self) -> f64;
@@ -355,6 +359,7 @@ let circle = Circle {radius: 5.0};
 print_area(circle); // Area: 78.53981633..
 }
 ```
+---
 
 __5. Lifetimes (Borrow Checker)__
 
@@ -374,6 +379,7 @@ let result = longest(s1.as_str(), s2);
 println!("longest: {}", result); // "long string"
 }
 ```
+---
 
 __6. Macros (Metaprogramming)__
 
@@ -408,6 +414,8 @@ let y = vec_macro![1, 2, 3];
 println!("{:?}", v) // [1, 2, 3]
 }
 ```
+---
+
 7. __Unsafe Rust (For Low-Level Control)__
 Rust allows unsafe blocks for operations that bypass safety (eg. raw pointers, FFI)
 
@@ -423,6 +431,7 @@ println!("{}", *raw_ptr); // 0
 }
 }
 ```
+---
 
 __8. Concurrency (Fearless Parallelism)__
 Rust's ownership model makes concurrency safer.
@@ -506,7 +515,10 @@ println!("Recived: {}", received);
 ```
 * This demonstrates rust's ownership system ensuring safe concurrent access.
 
-__9. Iterators (Lazy Evaluation)__
+---
+
+9. __Iterators (Lazy Evaluation)__
+
 Rust iteratos are lazy and chainable
 
 _Example: Chaining Iterators_
