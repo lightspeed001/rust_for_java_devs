@@ -5,7 +5,7 @@
 
 - Rust and Java share some similarities (like curly braces and semicolons), but Rust's syntax and paradigms differ significantly. Below is a comparison of key concepts.
 
-__1. Variables and Mutability__
+1. __Variables and Mutability__
 
 - Java: Variables are mutable by default unless declared `final`.
 
@@ -23,7 +23,7 @@ y = 15; // allowed
 ```
 ---
 
-__2. Functions__
+2. __Functions__
 
 - Java:
   
@@ -46,7 +46,7 @@ a + b
 
 ---
 
-__3. Ownership and Borrowing__
+3. __Ownership and Borrowing__
 
 - Rust enforces memory safety without a garbage collector via ownership
 - Each value has a single owner
@@ -70,7 +70,7 @@ println!("{}", s);
 ```
 ---
 
-__4. Structs (insted of classes)__
+4. __Structs (insted of classes)__
 
 - Rust doesnt have classes but has structs and traits (similar to interfaces).
 
@@ -100,7 +100,7 @@ println!("Hello, {}", self.name);
 
 ```
 ---
- __5. Enums and Pattern Matching__
+ 5. __Enums and Pattern Matching__
  
  Rusts `enum` is more powerful than Java's (can hold data)
  - Java
@@ -172,6 +172,8 @@ __Summary__
 * Rust is not OOP but it supports structured programming with structs and traits.
 * Memory safety is guaranteed at compile time via ownership.
 * Syntax is similar to Java but with stricter rules (immutability by default explicit types).
+
+---
 
 ### More Rust Specific Features with Practical examples :bulb:
 
@@ -361,7 +363,7 @@ print_area(circle); // Area: 78.53981633..
 ```
 ---
 
-__5. Lifetimes (Borrow Checker)__
+5. __Lifetimes (Borrow Checker)__
 
 Lifetimes ensure that references are valid for as long as they are used.
 
@@ -381,11 +383,11 @@ println!("longest: {}", result); // "long string"
 ```
 ---
 
-__6. Macros (Metaprogramming)__
+6. __Macros (Metaprogramming)__
 
 Rust macros allow code generation at compile time.
 
-_Example: **println!** Macro_
+_Example: `println!` Macro_
 ```rust
 macro_rules! say_hello {
 () => {
@@ -449,7 +451,7 @@ handle.join().unwrap(); // Wait for the thread to finish
 }
 ```
 
-__Example: Message Passing__ (`std::sync::spec`)
+_Example: Message Passing_ (`std::sync::spec`)
 
 ```rust
 use std::sync::mpsc;
