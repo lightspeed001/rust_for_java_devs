@@ -535,6 +535,8 @@ let sum: i32 = numbers.iter()
 println!("Sum: {}", sum); // 12 (2 + 4 + 6)
 }
 ```
+---
+
 10. `#[derive]` __(Automatic Trait Implementation)__
 Rust can auto-implement traits like `Debug`, `Clone`, and `PartialEq`.
 
