@@ -1,5 +1,4 @@
 # rust_for_java_devs
-## Rust For Java Developers (TLDR)
 
 ### Rust Syntax for Java Developers :robot:
 
@@ -70,7 +69,7 @@ println!("{}", s);
 ```
 ---
 
-4. __Structs (insted of classes)__
+4. __Structs (instead of classes)__
 
 - Rust doesnt have classes but has structs and traits (similar to interfaces).
 
@@ -403,7 +402,7 @@ say_hello!(); // "Hello, world!"
 _Example: Custom Vector Macro_
 ```rust
 macro_rules! vec_macro {
-($($x:expr), *) +> {
+($($x:expr), *) => {
 {
 let mut temp_vec = Vec::new();
 $(temp_vec.push($x);) * temp_vec
