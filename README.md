@@ -4,7 +4,7 @@
 
 - Rust and Java share some similarities (like curly braces and semicolons), but Rust's syntax and paradigms differ significantly. Below is a comparison of key concepts.
 
-1. __Variables and Mutability__
+__1. Variables and Mutability__
 
 - Java: Variables are mutable by default unless declared `final`.
 
@@ -22,7 +22,7 @@ y = 15; // allowed
 ```
 ---
 
-2. __Functions__
+__2. Functions__
 
 - Java:
   
@@ -45,7 +45,7 @@ a + b
 
 ---
 
-3. __Ownership and Borrowing__
+__3. Ownership and Borrowing__
 
 - Rust enforces memory safety without a garbage collector via ownership
 - Each value has a single owner
@@ -69,7 +69,7 @@ println!("{}", s);
 ```
 ---
 
-4. __Structs (instead of classes)__
+__4. Structs (instead of classes)__
 
 - Rust doesnt have classes but has structs and traits (similar to interfaces).
 
@@ -99,9 +99,10 @@ println!("Hello, {}", self.name);
 
 ```
 ---
- 5. __Enums and Pattern Matching__
+ __5. Enums and Pattern Matching__
  
  Rusts `enum` is more powerful than Java's (can hold data)
+ 
  - Java
  ```java
  enum Status {ACTIVE, INACTIVE}
@@ -123,6 +124,7 @@ Err(String),
 ```
 
 - Pattern Matching (Like `switch` but better):
+  
 ```rust
 match status {
 status::Active => println!("Active"),
@@ -153,6 +155,7 @@ Err(e) => println!("Error: {}", e),
 ---
 
 ### The _"Rust Way"_ of Programming
+
 Rust is not OOP (though it supports traits, which are similar to interfaces), instead it emphasizes:
 1. Ownership and Borrowing: Memory safety without GC.
 2. Zero-Cost Abstractions: High-level constructs compile to efficient machine code.
@@ -161,6 +164,7 @@ Rust is not OOP (though it supports traits, which are similar to interfaces), in
 5. Pattern Matching: Powerful `match` for control flow.
 
 __Key differences from Java__:
+  
 - No inheritence (traits are used instead).
 - No `null` (use `Option<T>`).
 - No exceptions (use `Result<T, E>`).
@@ -176,7 +180,7 @@ __Summary__
 
 ### More Rust Specific Features with Practical examples :bulb:
 
-1. __Ownership & Borrowing (Core Rust Concept)__
+__1. Ownership & Borrowing (Core Rust Concept)__
 
 Rust's memory safety is enforced via ownership rules:
 - Each value has a single owner
@@ -215,7 +219,8 @@ s.push_str(" modified");
 ```
 ---
 
-2. __Pattern Matching__ (`match`)
+__2. Pattern Matching__ (`match`)
+
 Rust's `match` is like a supercharged `switch` that can destructure enums, structs and more.
 
 _Example: Matching on Enums_
@@ -266,7 +271,8 @@ print_point(p); // "On the x-axis at 5"
 ```
 ---
 
-3. __Error Handling__ (`Result` and `Option`)
+__3. Error Handling__ (`Result` and `Option`)
+
 Rust avoids exceptions by using `Result<T, E>` (for recoverable errors) and `Option<T>` (for nullable values).
 
 _Example: `Result` for Error Handling_
@@ -307,7 +313,7 @@ None => println!("Cannot divide by zero"),
 ```
 ---
 
-4. __Traits (_Like Interfaces, but more Powerful_)__
+__4. Traits (_Like Interfaces, but more Powerful_)__
 
 Traits define shared behaviour (similar to Java interfaces but with more flexibility).
 
@@ -362,7 +368,7 @@ print_area(circle); // Area: 78.53981633..
 ```
 ---
 
-5. __Lifetimes (Borrow Checker)__
+__5. Lifetimes (Borrow Checker)__
 
 Lifetimes ensure that references are valid for as long as they are used.
 
@@ -382,7 +388,7 @@ println!("longest: {}", result); // "long string"
 ```
 ---
 
-6. __Macros (Metaprogramming)__
+__6. Macros (Metaprogramming)__
 
 Rust macros allow code generation at compile time.
 
@@ -400,6 +406,7 @@ say_hello!(); // "Hello, world!"
 ```
 
 _Example: Custom Vector Macro_
+
 ```rust
 macro_rules! vec_macro {
 ($($x:expr), *) => {
@@ -417,7 +424,8 @@ println!("{:?}", v) // [1, 2, 3]
 ```
 ---
 
-7. __Unsafe Rust (For Low-Level Control)__
+__7. Unsafe Rust (For Low-Level Control)__
+
 Rust allows unsafe blocks for operations that bypass safety (eg. raw pointers, FFI)
 
 _Example: Derefencing a Raw Pointer_
@@ -435,6 +443,7 @@ println!("{}", *raw_ptr); // 0
 ---
 
 __8. Concurrency (Fearless Parallelism)__
+
 Rust's ownership model makes concurrency safer.
 
 _Example: Spawning Threads_
@@ -488,6 +497,7 @@ sender_thread.join().unwrap();
 }
 ```
 * _Key Points_
+
 - **Channel Creation**: `mpsc::channel()` creates a communication channel with sender and receiver
 - **Thread Spawning**: The sender is moved into a new thread.
 - **Message Passing**: `sender.send()` transmits data while the receiver iterates over incoming messages.
@@ -521,7 +531,7 @@ println!("Recived: {}", received);
 
 ---
 
-9. __Iterators (Lazy Evaluation)__
+__9. Iterators (Lazy Evaluation)__
 
 Rust iteratos are lazy and chainable
 
@@ -540,7 +550,8 @@ println!("Sum: {}", sum); // 12 (2 + 4 + 6)
 ```
 ---
 
-10. `#[derive]` __(Automatic Trait Implementation)__
+__10.__ `#[derive]` __(Automatic Trait Implementation)__
+
 Rust can auto-implement traits like `Debug`, `Clone`, and `PartialEq`.
 
 _Example: Deriving Traits_
@@ -572,7 +583,8 @@ These features make Rust **unique**:
 - **Metaprogramming** (macros)
 
 __Join the Community__ :people_hugging:
-- [Rust Discord](https://discord.com/invite/rust-lang-community): _One of the largest hugs for real time chatter, for general help web development and compiler deep dives_
+  
+- [Rust Discord](https://discord.com/invite/rust-lang-community): _One of the largest hubs for real time chatter, for general help web development and compiler deep dives_
 - [Tokio Discord Server](https://discord.com/invite/tokio): _For asynchronous application developers, this server is very active._
 - [Rust Users Forum](https://users.rust-lang.org/): _The oficial forum to ask coding questions, debug problems, share crates, or make project announcements_
 - [Rust Internals Forum](https://users.rust-lang.org/): _The official venue for discussing the language design itself, compiler features, and active RFCs._
@@ -580,4 +592,4 @@ __Join the Community__ :people_hugging:
 - [Rust Foundation Official Page](https://rustfoundation.org/): _Follow the Rust Foundations official page for industry developments, grant structures, and global events like RustConf._
 - [Meetup Rust Groups](https://www.meetup.com/topics/rust/): _Find local groups or online-accessible user groups near you to network in person._
 
-_Think I missed something here? Hit me up on_ [Bluesky](https://bsky.app/profile/lightspeed001.bsky.social) _or_ [LinkedIn](https://www.linkedin.com/in/edmund-rantsimele-08a13b300/). _Or raise an issue_ :smile:
+_Think I missed something here? Hit me up on_ [Bluesky](https://bsky.app/profile/lightspeed001.bsky.social) _or_ [LinkedIn](https://www.linkedin.com/in/edmund-rantsimele-08a13b300/). _Or raise an issue_ :smiley:
