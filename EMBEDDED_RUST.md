@@ -1,5 +1,5 @@
 # rust_for_java_devs
-## Rust For Embedded Systems and Edge AI
+## Rust For Embedded Systems and Edge AI :robot:
 
 - Rust is a good choice for Edge AI and Embedded Systems due to it's performance, memory safety, and zero-cost abstractions.
 Below are **key Rust programming approaches** and examples applicable to these domains:
@@ -8,9 +8,9 @@ __1. Bare-Metal & No-Std Programming__
 
 Edge and embedded systems often run without an OS (bare-metal) or with minimal runtime (`no_std`). 
 Rust supports this via:
-  - `#[no_std]`: Disbables the standard library for embedded targets.
-  - `#[panic_handler]`: Custom panic handlers for embedded systems.
-  - `#[alloc_error_handler]`: Custom allocator error handling.
+- `#[no_std]`: Disbables the standard library for embedded targets.
+- `#[panic_handler]`: Custom panic handlers for embedded systems.
+- `#[alloc_error_handler]`: Custom allocator error handling.
 
 _Example: Minimal_ `no_std` _Program_
 
@@ -36,9 +36,9 @@ loop {}
 __2. Hardware Abstraction & Peripheral Access__
 
 Rust provides crates for direct hardware control:
-  - `embedded-hal`: Standard traits for GPIO, I2C, SPI, PWM, etc.
-  - `svd2rust`: Generates Rust APIs from CMSIS-SVD (ARM Cortex-M).
-  - `stm32f4xx`: Hardware abstraction for STM32 microcontrollers.
+- `embedded-hal`: Standard traits for GPIO, I2C, SPI, PWM, etc.
+- `svd2rust`: Generates Rust APIs from CMSIS-SVD (ARM Cortex-M).
+- `stm32f4xx`: Hardware abstraction for STM32 microcontrollers.
 
 _Example: Blinking an LED (STM32)_
 
@@ -75,8 +75,8 @@ cortex_m::asm::nop();
 __3. Real-Time & Low-Latency Systems__
 
 Rust's predictability and lack of hidden allocations make it suitable for real-time systems:
-	- `rtic`(Real-Time Interrupt-driven Concurrency): A framework for deterministic scheduling.
-	- `cortex-m-rtic`: RTIC for ARM Cortex-M.
+- `rtic`(Real-Time Interrupt-driven Concurrency): A framework for deterministic scheduling.
+- `cortex-m-rtic`: RTIC for ARM Cortex-M.
 
 _Example: RTIC Blinky_
 
@@ -130,9 +130,9 @@ cortex_m::asm::nop();
 __4. Edge AI and ML Inference__
 
 For AI at the edge, Rust offers:
-	- `tch-rs`: Rust bindings for PyTorch (TorchScript)
-	- `onnxruntime-rs`: ONNX Runtime for inference.
-	- `embedded-ml`: Lightweight ML for microcontrollers
+- `tch-rs`: Rust bindings for PyTorch (TorchScript)
+- `onnxruntime-rs`: ONNX Runtime for inference.
+- `embedded-ml`: Lightweight ML for microcontrollers.
 
 _Example: Running a TinyML Model (Tensorflow Lite)_
 
@@ -167,9 +167,9 @@ println!("Output: {}", output);
 __5. Memory Safety and Concurrency__
 
 Rust's ownership model prevents data races memory leaks:
-	- `crossbeam`: Lock-free data structures.
-	- `heapless`: Fixed-capacity data structures for `no_std`.
-	- `spin`: Spinlocks for bare-metal systems.
+- `crossbeam`: Lock-free data structures.
+- `heapless`: Fixed-capacity data structures for `no_std`.
+- `spin`: Spinlocks for bare-metal systems.
 
 _Example: Thread-Safe Queue_ (`heapless`)
 
@@ -195,7 +195,7 @@ println!("Got: {}", val);
 
 __6. Cross-Complication & Embedded Tooling__
 
-Rust's `cargo` supports cross-comilation for embedded targets:
+Rust's `cargo` supports cross-compilation for embedded targets:
 - `cargo build --target thumbv7em-none-eabihf` (ARM Cortex-M)
 - `probe-rs`: Debugging and flashing tools
 
