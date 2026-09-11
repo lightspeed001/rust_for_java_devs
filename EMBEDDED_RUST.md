@@ -6,14 +6,32 @@
 Below are **key Rust programming approaches** and examples applicable to these domains:
 
 1. __Bare-Metal & No-Std Programming__
+
 Edge and embedded systems often run without an OS (bare-metal) or with minimal runtime (`no_std`). 
 Rust supports this via:
   - `#[no_std]`: Disbables the standard library for embedded targets.
   - `#[panic_handler]`: Custom panic handlers for embedded systems.
   - `#[alloc_error_handler]`: Custom allocator error handling.
 
-Example: Minimal `no_std` Program
+_Example: Minimal_ `no_std` _Program_
 
+```rust
+#![no_std]
+#![no_main]
+
+use core::panic::PanicInfo;
+
+#[panic_handler]
+fn panic(_info: &PanicInfo) -> ! {
+loop {}
+}
+
+#[no_mangle]
+pub extern "C" fn _start() -> ! {
+// Entry point for bare-metal systems
+loop {}
+}
+```
 
 ---
 ### Key Crates for Edge AI & Embedded Rust :hammer_and_wrench:

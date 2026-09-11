@@ -104,6 +104,7 @@ println!("Hello, {}", self.name);
  Rusts `enum` is more powerful than Java's (can hold data)
  
  - Java
+ 
  ```java
  enum Status {ACTIVE, INACTIVE}
 
@@ -157,11 +158,11 @@ Err(e) => println!("Error: {}", e),
 ### The _"Rust Way"_ of Programming
 
 Rust is not OOP (though it supports traits, which are similar to interfaces), instead it emphasizes:
-1. Ownership and Borrowing: Memory safety without GC.
-2. Zero-Cost Abstractions: High-level constructs compile to efficient machine code.
-3. Explicitness: Types, mutability and error handling are explicit.
-4. Fearless Concurrency: Thread safety is enforced at compile time.
-5. Pattern Matching: Powerful `match` for control flow.
+1. **Ownership and Borrowing**: Memory safety without GC.
+2. **Zero-Cost Abstractions**: High-level constructs compile to efficient machine code.
+3. **Explicitness**: Types, mutability and error handling are explicit.
+4. **Fearless Concurrency**: Thread safety is enforced at compile time.
+5. **Pattern Matching**: Powerful `match` for control flow.
 
 __Key differences from Java__:
   
@@ -275,7 +276,7 @@ __3. Error Handling__ (`Result` and `Option`)
 
 Rust avoids exceptions by using `Result<T, E>` (for recoverable errors) and `Option<T>` (for nullable values).
 
-_Example: `Result` for Error Handling_
+_Example_: `Result` _for Error Handling_
 
 ```rust
 use std::fs::File;
@@ -289,7 +290,7 @@ Err(e) => println!("Error opening file: {}", e),
 }
 }
 ```
-_Example: `Option` for Nullable Values_
+_Example_: `Option` _for Nullable Values_
 
 ```rust
 fn divide(a: f64, b: f64) -> Option<f64> {
@@ -392,7 +393,7 @@ __6. Macros (Metaprogramming)__
 
 Rust macros allow code generation at compile time.
 
-_Example: `println!` Macro_
+_Example_: `println!` _Macro_
 ```rust
 macro_rules! say_hello {
 () => {
@@ -496,7 +497,7 @@ println!("Received: {}", received);
 sender_thread.join().unwrap();
 }
 ```
-* _Key Points_
+* _**Key Points**_:
 
 - **Channel Creation**: `mpsc::channel()` creates a communication channel with sender and receiver
 - **Thread Spawning**: The sender is moved into a new thread.
@@ -569,6 +570,7 @@ let p1 = Point {x: 1, y: 2};
 let p2 = p1.clone();
 println!("{:?}", p1); // Debug output
 println!("Are they equal? {}", p1 == p2); // true
+
 }
 ```
 ---
@@ -581,6 +583,20 @@ These features make Rust **unique**:
 - **Zero-cost abstractions** (traits, iterators)
 - **Fearless concurrency** (threads, channels)
 - **Metaprogramming** (macros)
+
+__Official Documentation & Core Guides__ :nerd_face:
+
+- [The Rust Programming Language](https://doc.rust-lang.org/book/): _Affectionately known as **"The Book"**, this is the absolute **gold-standard** introduction to Rust._
+- [Rust by Example](https://doc.rust-lang.org/rust-by-example/): _A massive collection of runnable code examples that teaches Rust through practical snippets rather than heavy theory._
+- [The Rustonomicon](https://doc.rust-lang.org/nomicon/): _The ultimate, dark-arts guide to the advanced and unsafe corners of Rust programming._
+- [The Rust Reference](https://doc.rust-lang.org/reference/): _The detailed, formal reference manual for the language syntax, constructs, and memory model._
+
+_Intermediate & Advanced Open Books_ :muscle:
+
+- [Comprehensive Rust](https://google.github.io/comprehensive-rust/): _A thorough, fast-paced Rust course developed and used internally by Google's Android team._
+- [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html): _An open-source book dedicated to idioms, design patterns, and anti-patterns unique to Rust_
+- [Effective Rust](https://effective-rust.com/title-page.html): _35 pecific ways to improve your Rust code, available completely free online (with a print version available for purchase)_
+
 
 __Join the Community__ :people_hugging:
   
