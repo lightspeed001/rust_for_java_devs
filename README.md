@@ -580,4 +580,4 @@ __Join the Community__ :people_hugging:
 - [Rust Foundation Official Page](https://rustfoundation.org/): _Follow the Rust Foundations official page for industry developments, grant structures, and global events like RustConf._
 - [Meetup Rust Groups](https://www.meetup.com/topics/rust/): _Find local groups or online-accessible user groups near you to network in person._
 
-_Think I missed something here? Hit me up on_ [Bluesky](https://bsky.app/profile/lightspeed001.bsky.social) _or_ [LinkedIn](https://www.linkedin.com/in/edmund-rantsimele-08a13b300/). _Or raise and issue_ :smile:
+_Think I missed something here? Hit me up on_ [Bluesky](https://bsky.app/profile/lightspeed001.bsky.social) _or_ [LinkedIn](https://www.linkedin.com/in/edmund-rantsimele-08a13b300/). _Or raise an issue_ :smile:
