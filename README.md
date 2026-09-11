@@ -567,7 +567,3 @@ These features make Rust **unique**:
 - **Zero-cost abstractions** (traits, iterators)
 - **Fearless concurrency** (threads, channels)
 - **Metaprogramming** (macros)
-
-
-
-
