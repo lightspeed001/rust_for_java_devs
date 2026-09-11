@@ -275,7 +275,7 @@ _Example: `Result` for Error Handling_
 use std::fs::File;
 
 fn main() {
-ket fiel_result = File::open("nonexistent.txt");
+let file_result = File::open("nonexistent.txt");
 
 match file_result {
 Ok(file) => println!("File opened: {:?}", file),
@@ -347,7 +347,7 @@ radius: f64,
 
 impl Area for Circle {
 fn area(&self) -> f64 {
-stad::f64::consts::PI * self.radius * self.radius
+std::f64::consts::PI * self.radius * self.radius
 }
 }
 
@@ -463,16 +463,19 @@ let (sender, receiver) = mpsc::channel();
 
 //spawn a thread that sends messages
 let sender_thread = thread::spawn(move || {
+
 let messages = vec! [
 "Hello from thread 1",
 "Greetings from thread 2",
 "Goodbye from thread 3",
 ];
+
 for msg in messages {
 sender.send(msg).unwrap();
 println!("Sent: {}", msg);
 thread::sleep(Duration::from_secs(1));
 }
+
 });
 
 // Main thread received messages
@@ -487,8 +490,8 @@ sender_thread.join().unwrap();
 * _Key Points_
 - **Channel Creation**: `mpsc::channel()` creates a communication channel with sender and receiver
 - **Thread Spawning**: The sender is moved into a new thread.
-- **Message Passing**: `sender.send()` tranmits data while the receiver iterates over incoming messages.
-- **Ownership**: The `move` keyword tranfers ownership of the sender to the new thread.
+- **Message Passing**: `sender.send()` transmits data while the receiver iterates over incoming messages.
+- **Ownership**: The `move` keyword transfers ownership of the sender to the new thread.
 
 * _Alternative with Multiple Senders_
 
