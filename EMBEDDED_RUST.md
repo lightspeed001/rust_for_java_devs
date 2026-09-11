@@ -32,6 +32,137 @@ pub extern "C" fn _start() -> ! {
 loop {}
 }
 ```
+----
+
+__2. Hardware Abstraction & Peripheral Access__
+
+Rust provides crates for direct hardware control:
+  - `embedded-hal`: Standard traits for GPIO, I2C, SPI, PWM, etc.
+  - `svd2rust`: Generates Rust APIs from CMSIS-SVD (ARM Cortex-M).
+  - `stm32f4xx`: Hardware abstraction for STM32 microcontrollers.
+
+_Example: Blinking an LED (STM32)_
+
+```rust
+#![no_std]
+#![no_main]
+
+use cortex_m_rt::entry;
+use stm32f4xx_hal::{pac, prelude::*};
+
+#[entry]
+fn main() -> ! {
+let dp = pac::Peripherals::take().unwrap();
+let gpioa = dp.GPIOA.spit();
+
+let mut led = gpioa.pa5.into_push_pull_output();
+loop {
+led.set_high();
+delay(500);
+led.set_low();
+delay(500);
+}
+}
+
+fn delay(ms: u32) {
+// Simple delay implementation
+for _ in 0..ms * 1000 {
+cortex_m::asm::nop();
+}
+}
+```
+----
+
+__3. Real-Time & Low-Latency Systems__
+
+Rust's predictability and lack of hidden allocations make it suitable for real-time systems:
+	- `rtic`(Real-Time Interrupt-driven Concurrency): A framework for deterministic scheduling.
+	- `cortex-m-rtic`: RTIC for ARM Cortex-M.
+
+_Example: RTIC Blinky_
+
+```rust
+#![no_std]
+#![no_main]
+
+use rtic::app;
+use stm32f4xx_hal::{pac, prelude::*};
+
+#[app(device = stm32f4xx_hal::pac, peripherals = true)]
+mod app {
+use super::*;
+
+#[shared]
+struct Shared {}
+
+#[local]
+struct Local {
+led: gpio::Pin<Output>,
+}
+
+#[init]
+fn init(cx: init::Context) -> (Shared, Local) {
+let dp = cx.device;
+let gpioa = dp.GPIOA.split();
+let led = gpioa.pa5.into_push_pull_output();
+
+(Shared {}, Local {led})
+}
+
+#[idle(local = [led])]
+fn idle(cx: idle::Context) -> ! {
+loop {
+cx.local.led.set_high();
+delay(500);
+cx.local.led.set_low();
+delay(500);
+}
+}
+}
+
+fn delay(ms: u32) {
+for _ in 0..ms * 1000 {
+cortex_m::asm::nop();
+}
+}
+```
+----
+
+__4. Edge AI and ML Inference__
+For AI at the edge, Rust offers:
+- `tch-rs`: Rust bindings for PyTorch (TorchScript)
+- `onnxruntime-rs`: ONNX Runtime for inference.
+- `embedded-ml`: Lightweight ML for microcontrollers
+
+_Example: Running a TinyML Model (Tensorflow Lite)_
+
+```rust
+use tflite::Interpreter;
+
+fn run_inference() {
+let model_data = include_bytes!("model.tflite");
+let interpreter = Interpreter::new(model_data).unwrap();
+
+// Allocate tensors
+interpreter.allocate_tensors().unwrap();
+
+// Fill input tensor
+let input = interpreter.input(0).unwrap();
+input.copy_from_slice(&[0.1, 0.2, 0.3, 0.4]);
+
+// Run inference
+let input = interpreter.input(0).unwrap();
+input.copy_from_slice(&[0.1, 0.2, 0.3, 0.4]);
+
+// Run inference
+interpreter.invoke().unwrap();
+
+//Get output
+let output = interpreter.out(0).unwrap();
+println!("Output: {}", output);
+}
+```
+----
 
 ---
 ### Key Crates for Edge AI & Embedded Rust :hammer_and_wrench:
@@ -48,7 +179,7 @@ loop {}
 
 ### Conclusion :pushpin:
 
-Rust's perormance, safety and ecosystem make it ideal for:
+Rust's performance, safety and ecosystem make it ideal for:
 - Bare-metal & `no_std` programming
 - Real-time & low-latency systems
 - Edge AI inference (TinyML, ONNX, PyTorch)
