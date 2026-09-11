@@ -497,7 +497,7 @@ println!("Received: {}", received);
 sender_thread.join().unwrap();
 }
 ```
-* _**Key Points**_:
+> _**Key Points**_:
 
 - **Channel Creation**: `mpsc::channel()` creates a communication channel with sender and receiver
 - **Thread Spawning**: The sender is moved into a new thread.
@@ -591,7 +591,7 @@ __Official Documentation & Core Guides__ :nerd_face:
 - [The Rustonomicon](https://doc.rust-lang.org/nomicon/): _The ultimate, dark-arts guide to the advanced and unsafe corners of Rust programming._
 - [The Rust Reference](https://doc.rust-lang.org/reference/): _The detailed, formal reference manual for the language syntax, constructs, and memory model._
 
-_Intermediate & Advanced Open Books_ :muscle:
+_**Intermediate & Advanced Open Books**_ :muscle:
 
 - [Comprehensive Rust](https://google.github.io/comprehensive-rust/): _A thorough, fast-paced Rust course developed and used internally by Google's Android team._
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html): _An open-source book dedicated to idioms, design patterns, and anti-patterns unique to Rust_
