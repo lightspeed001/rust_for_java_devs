@@ -595,17 +595,17 @@ _**Intermediate & Advanced Open Books**_ :muscle:
 
 - [Comprehensive Rust](https://google.github.io/comprehensive-rust/): _A thorough, fast-paced Rust course developed and used internally by Google's Android team._
 - [Rust Design Patterns](https://rust-unofficial.github.io/patterns/intro.html): _An open-source book dedicated to idioms, design patterns, and anti-patterns unique to Rust_
-- [Effective Rust](https://effective-rust.com/title-page.html): _35 pecific ways to improve your Rust code, available completely free online (with a print version available for purchase)_
+- [Effective Rust](https://effective-rust.com/title-page.html): _35 specific ways to improve your Rust code, available completely free online (with a print version available for purchase)_
 
 
 __Join the Community__ :people_hugging:
   
-- [Rust Discord](https://discord.com/invite/rust-lang-community): _One of the largest hubs for real time chatter, for general help web development and compiler deep dives_
+- [Rust Discord](https://discord.com/invite/rust-lang-community): _One of the largest hubs for real time chatter, for general help, web development and compiler deep dives_
 - [Tokio Discord Server](https://discord.com/invite/tokio): _For asynchronous application developers, this server is very active._
-- [Rust Users Forum](https://users.rust-lang.org/): _The oficial forum to ask coding questions, debug problems, share crates, or make project announcements_
+- [Rust Users Forum](https://users.rust-lang.org/): _The official forum to ask coding questions, debug problems, share crates, or make project announcements_
 - [Rust Internals Forum](https://users.rust-lang.org/): _The official venue for discussing the language design itself, compiler features, and active RFCs._
 - [Rust Reddit Community](https://www.reddit.com/r/rust/): _A massive and highly active hub for sharing blog posts, ecosystem news, tutorials, amd community project updates._
-- [Rust Foundation Official Page](https://rustfoundation.org/): _Follow the Rust Foundations official page for industry developments, grant structures, and global events like RustConf._
+- [Rust Foundation Official Page](https://rustfoundation.org/): _Follow the Rust Foundations official page for industry developments, grant structures, and global events like_ [RustConf](https://rustconf.com/).
 - [Meetup Rust Groups](https://www.meetup.com/topics/rust/): _Find local groups or online-accessible user groups near you to network in person._
 
 _Think I missed something here? Hit me up on_ [Bluesky](https://bsky.app/profile/lightspeed001.bsky.social) _or_ [LinkedIn](https://www.linkedin.com/in/edmund-rantsimele-08a13b300/). _Or raise an issue_ :smiley:
