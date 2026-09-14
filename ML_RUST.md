@@ -146,6 +146,7 @@ expanded.into()
 - Macros let you write ML like syntax (eg. `#[tensor] struct Conv2D {...}`)
 
 __7.__ `ndarray` **for Numerical Computing**
+
 The `ndarray` crate is Rust's answer to NumPy.
 
 _Example: Matrix Multiplication_
@@ -164,6 +165,83 @@ println("{:?}", c);
 ```
 
 - It's NumPy-like but with rust's safety guarantees.
+
+__8.__ `rayon` __for Parallel ML Training Training__
+
+`rayon` makes it easy to parallelize ML workloads (eg. data-loading, gradient computation).
+
+```rust
+use rayon::prelude::*;
+
+fn main() {
+let data: Vec<f32> = (0..1_000_000).map(|x| x as f32).collect();
+let squared: Vec<f32> = data.par_iter().map(|x| x * x).collect();
+println!("First 5 squared: {:?}", &squared[..5]); // [0.0, 1.0, 4.0, 9.0, 16.0]
+}
+```
+- This automatically parallelizes across CPU cores.
+
+**9.** `burn` (A pure Rust ML Framework)
+
+If you're building a new ML framework, checkout `burn`, a pure Rust ML library.
+
+_Example: Defining a Model in_ `burn`
+
+```rust
+use burn::nn::{Linear, LinearConfig};
+use burn::tensor::Tensor;
+
+fn main() {
+let config = LinearConfig::new(10, 5);
+let linear = Linear::new(config);
+let x =  Tensor::random([2, 20]);
+let y = linear.forward(x);
+println!("Output shape: {:?}", y.shape());
+}
+```
+- It's Rust native (no Python deps) and GPU-accelerated.
+
+__10.__ `wgpu` **for GPU-Accelerated ML**
+
+For GPU compute, `wgpu` (WebGPU in Rust) is a great choice.
+
+_Example: Simple GPU Kernel_
+
+```rust
+use wgpu::util::DeviceExt;
+
+async fn run_gpu_kernel() {
+let instance = wgpu::Instance::new(wgpu::InstanceDescriptor::default());
+let adapter = instance.request_adapter(&wgpu::RequestAdapterOptions::default()).await.unwrap();
+let (device, queue) = adapter.request_device(&wgpu::DeviceDescripto::default(), None).await.unwrap();
+
+let cs_module = device.create_shader_module(wgpu::ShaderModuleDescriptor {
+label: home,
+source: wgpu::ShaderSource::Wgsl(include_str!("shader.wsgl")).intro();
+
+})
+
+// (Add compute pipeline setup here)
+}
+
+fn main() {
+pollster::block_on(run_gpu_kernel());
+}
+```
+- It's cross platform (Vulkan, Metal, DirectX) and low-level (like CUDA but safer)
+
+### Final Rust ML Backend Engineering Notes :spiral_notepad:
+
+- Use `ndarray` or `burn` for numerical computing.
+- Leverage `rayon` and `tokio` for parallelism
+- Optimize with SIMD and custom custom alocators for performance.
+- Use FFI for Python interop (PyTorch/JAX)
+- Consider `wgpu` for GPU acceleration if needed
+- Write procedural macros for ML DSLs (eg. autograd).
+- Profile `perf` or `flamegraph` to find bottlenecks.
+
+
+
 
 
 
