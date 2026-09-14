@@ -77,7 +77,8 @@ vec.extend(0..1_000_000); // Faster than default allocator
 - `jemalloc` reduces fragmentation and speeds allocations/deallocations.
 
 
-4. FFI (Foreign Function Interface) for Python Interop
+**4. FFI (Foreign Function Interface) for Python Interop**
+
 Since you're in ML, you'll likely need to call Python (PyTorch) from Rust or vice versa.
 
 _Example: Calling Python from Rust_
